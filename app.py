@@ -40,37 +40,25 @@ def momo():
 
 @app.route('/card', methods = ["POST", "GET"])
 def card_payment():
-    # Payload with pin
-    # payload = {
-    # "cardno": "5438898014560229",
-    # "cvv": "890",
-    # "expirymonth": "09",
-    # "expiryyear": "23",
-    # "amount": "10",
-    # "email": "user@gmail.com",
-    # "phonenumber": "0902620185",
-    # "firstname": "temi",
-    # "lastname": "desola",
-    # "IP": "355426087298442",
-    # }
-    # global res
+    
     if request.method == "POST":
-        payload = {
-            "cardno": request.args.get('cardno'),
-            "cvv": request.args.get('cvv'),
-            "expiryyear": request.args.get('expirymonth'),
-            "amount": request.args.get('amount'),
-            "expirymonth": request.args.get('expirymonth'),
-            "email": request.args.get('email'),
-            "phonenumber": request.args.get('phonenumber'),
-            "firstname": request.args.get('firstname'),
-            "lastname": request.args.get('lastname'),
-            "IP": request.args.get('IP'),
-            "currency": request.args.get('currency'),
-            "country": request.args.get('country')
-            # "lastname": request.args.get('lastname')
+        payload = request.json
+        # {
+        #     "cardno": request.args.get('cardno'),
+        #     "cvv": request.args.get('cvv'),
+        #     "expiryyear": request.args.get('expirymonth'),
+        #     "amount": request.args.get('amount'),
+        #     "expirymonth": request.args.get('expirymonth'),
+        #     "email": request.args.get('email'),
+        #     "phonenumber": request.args.get('phonenumber'),
+        #     "firstname": request.args.get('firstname'),
+        #     "lastname": request.args.get('lastname'),
+        #     "IP": request.args.get('IP'),
+        #     "currency": request.args.get('currency'),
+        #     "country": request.args.get('country')
+        #     # "lastname": request.args.get('lastname')
 
-        }
+        # }
 
         try:
             res = rave.Card.charge(payload)
